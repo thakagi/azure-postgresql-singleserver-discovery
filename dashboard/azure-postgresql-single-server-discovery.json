@@ -1,0 +1,348 @@
+{
+  "properties": {
+    "lenses": {
+      "0": {
+        "order": 0,
+        "parts": {
+          "0": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "colSpan": 4,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "partTitle",
+                  "value": "PGS1 - Single Server Count",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "Resources\r\n| where type == \"microsoft.dbforpostgresql/servers\"\r\n| summarize Servers = count()",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "value": "8bc637e6-695e-4308-80de-7b0c1206c4e7",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Single Server Count",
+                "subtitle": ""
+              }
+            }
+          },
+          "1": {
+            "position": {
+              "x": 4,
+              "y": 0,
+              "colSpan": 4,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "partTitle",
+                  "value": "PGS1 - Versions",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "Resources\r\n| extend version =properties.version\r\n| where type == \"microsoft.dbforpostgresql/servers\"\r\n| project name, version\r\n| summarize Count = count() by tostring(version)\r\n|order by Count desc",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 1,
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "value": "178690ec-033d-4955-999c-3dcd7c25a135",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Version",
+                "subtitle": ""
+              }
+            }
+          },
+          "2": {
+            "position": {
+              "x": 8,
+              "y": 0,
+              "colSpan": 4,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "partTitle",
+                  "value": "PGS1 - SKU",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "Resources\r\n| extend sku =sku.name\r\n| where type == \"microsoft.dbforpostgresql/servers\"\r\n| project sku\r\n| summarize Count = count() by tostring(sku)\r\n|order by Count desc",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "value": "73d85830-b168-48ad-9b1b-a1b8630be142",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryGridTile",
+              "settings": {},
+              "partHeader": {
+                "title": "SKU Name",
+                "subtitle": ""
+              }
+            }
+          },
+          "3": {
+            "position": {
+              "x": 12,
+              "y": 0,
+              "colSpan": 4,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "partTitle",
+                  "value": "PGS1 - SKU",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "Resources\r\n| extend tier =sku.tier\r\n| where type == \"microsoft.dbforpostgresql/servers\"\r\n| project tier\r\n| summarize Count = count() by tostring(tier)\r\n|order by Count desc",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 1,
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "value": "73d85830-b168-48ad-9b1b-a1b8630be142",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "SKU Tier",
+                "subtitle": ""
+              }
+            }
+          },
+          "4": {
+            "position": {
+              "x": 16,
+              "y": 0,
+              "colSpan": 4,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "partTitle",
+                  "value": "PGS1 - Tier",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "Resources\r\n| extend family =sku.family\r\n| where type == \"microsoft.dbforpostgresql/servers\"\r\n| project family\r\n| summarize Count = count() by tostring(family)\r\n|order by Count desc",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 1,
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "value": "e61bf38a-d5e6-44e7-b717-27f2a47b461e",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "SKU Family",
+                "subtitle": ""
+              }
+            }
+          },
+          "5": {
+            "position": {
+              "x": 0,
+              "y": 4,
+              "colSpan": 20,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "partTitle",
+                  "value": "PostgreSQL - Single Server Inventory",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources\r\n| where type == \"microsoft.dbforpostgresql/servers\"\r\n| project\r\n    name,\r\n    type,\r\n    subscriptionId,\r\n    sku = sku[\"name\"],\r\n    tier = sku[\"tier\"],\r\n    capacity = sku[\"capacity\"],\r\n    family = sku[\"family\"],\r\n    location,\r\n    version = properties[\"version\"],\r\n    publicNetworkAccess = properties[\"publicNetworkAccess\"],\r\n    privateEndpointConnections = properties[\"privateEndpointConnections\"],\r\n    backupRetentionDays = properties[\"storageProfile\"][\"backupRetentionDays\"],\r\n    geoRedundantBackup = properties[\"storageProfile\"][\"geoRedundantBackup\"],\r\n    storageAutogrow = properties[\"storageProfile\"][\"storageAutogrow\"],\r\n    storageMB = properties[\"storageProfile\"][\"storageMB\"],\r\n    fullyQualifiedDomainName = properties[\"fullyQualifiedDomainName\"],\r\n    minimalTlsVersion = properties[\"minimalTlsVersion\"],\r\n    replicationRole = properties[\"replicationRole\"],\r\n    replicaCapacity = properties[\"replicaCapacity\"],\r\n    infrastructureEncryption = properties[\"infrastructureEncryption\"],\r\n    userVisibleState = properties[\"userVisibleState\"],\r\n    byokEnforcement = properties[\"byokEnforcement\"],\r\n    sslEnforcement = properties[\"sslEnforcement\"],\r\n    tags",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "value": "7e73340d-aca8-4b23-824e-179906cf2e22",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryGridTile",
+              "settings": {}
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "model": {
+        "timeRange": {
+          "value": {
+            "relative": {
+              "duration": 24,
+              "timeUnit": 1
+            }
+          },
+          "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+        }
+      }
+    }
+  },
+  "name": "PostgreSQL - Single Server Inventory",
+  "type": "Microsoft.Portal/dashboards",
+  "location": "INSERT LOCATION",
+  "tags": {
+    "hidden-title": "PostgreSQL - Single Server Inventory"
+  },
+  "apiVersion": "2015-08-01-preview"
+}
